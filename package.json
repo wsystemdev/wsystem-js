@@ -1,20 +1,53 @@
 {
   "name": "wsystem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zero-dependency client for the W System API: EU VAT (VIES) and EORI validation, company registers, sanctions screening, KYB, and EU e-invoicing (EN 16931 validation, UBL creation, Peppol routing).",
   "type": "module",
   "main": "./index.cjs",
   "module": "./index.mjs",
   "types": "./index.d.ts",
   "exports": {
-    ".": { "types": "./index.d.ts", "import": "./index.mjs", "require": "./index.cjs" }
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.cjs"
+    }
   },
-  "files": ["index.mjs", "index.cjs", "index.d.ts", "README.md", "LICENSE"],
-  "engines": { "node": ">=18" },
-  "keywords": ["vies", "vat", "vat-validation", "eu-vat", "eori", "peppol", "e-invoicing", "einvoice", "en16931", "xrechnung", "ubl", "zugferd", "kyb", "sanctions", "api-client"],
+  "files": [
+    "index.mjs",
+    "index.cjs",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "vies",
+    "vat",
+    "vat-validation",
+    "eu-vat",
+    "eori",
+    "peppol",
+    "e-invoicing",
+    "einvoice",
+    "en16931",
+    "xrechnung",
+    "ubl",
+    "zugferd",
+    "kyb",
+    "sanctions",
+    "api-client"
+  ],
   "homepage": "https://wsystem.dev",
-  "repository": { "type": "git", "url": "git+https://github.com/wsystemdev/wsystem-js.git" },
-  "bugs": { "url": "https://github.com/wsystemdev/wsystem-js/issues" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wsystemdev/wsystem-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wsystemdev/wsystem-js/issues"
+  },
   "author": "W System <hello@wsystem.dev>",
   "license": "MIT"
 }
