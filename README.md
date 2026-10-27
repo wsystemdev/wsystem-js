@@ -33,7 +33,7 @@ const ws = new WSystem({ apiKey: process.env.WSYSTEM_API_KEY });
 ## API key
 
 - **No key**: 20 free calls/day per IP.
-- **Free key**: 500 units/month, email only, no card: <https://api.wsystem.dev/account/free-key>
+- **Free key**: 500 units/month, email only, no card: <https://api.wsystem.dev/account/free-key?ref=wsystem-js-github>
 - **Plans**: Starter €19/month, Pro €49/month: <https://wsystem.dev/pricing>
 
 Pass it as `new WSystem({ apiKey })` or set `WSYSTEM_API_KEY`. Check your quota with `await ws.usage()`.
