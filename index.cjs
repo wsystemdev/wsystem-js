@@ -69,6 +69,10 @@ class WSystem {
     const { rules, base64 } = opts;
     return this.request("POST", "/einvoice/validate", { query: { rules }, body: base64 ? { base64: xml } : { xml } });
   }
+  einvoiceParse(xml, opts = {}) {
+    // Read an incoming UBL / CII / XRechnung / ZUGFeRD (base64 PDF) invoice as normalized JSON
+    return this.request("POST", "/einvoice/parse", { body: opts.base64 ? { base64: xml } : { xml } });
+  }
   einvoiceCreate(invoice) { return this.request("POST", "/einvoice/create", { body: invoice }); }
   einvoiceSample() { return this.request("GET", "/einvoice/sample"); }
   frPaRegistry(opts = {}) { return this.request("GET", "/fr/pa-registry", { query: opts }); }

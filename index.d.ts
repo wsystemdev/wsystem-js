@@ -27,6 +27,7 @@ export declare class WSystem {
   /** "Can I e-invoice this company?" VAT + Peppol + country mandate. id = VAT number or Peppol id. */
   einvoiceRoute(id: string, opts?: { requester?: string }): Promise<Json>;
   einvoiceValidate(xml: string, opts?: { rules?: string; base64?: boolean }): Promise<Json>;
+  einvoiceParse(xml: string, opts?: { base64?: boolean }): Promise<Json>;
   einvoiceCreate(invoice: Record<string, unknown>): Promise<Json>;
   einvoiceSample(): Promise<Json>;
   frPaRegistry(opts?: { name?: string; website?: string; limit?: number }): Promise<Json>;

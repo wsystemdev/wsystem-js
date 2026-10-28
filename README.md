@@ -52,6 +52,7 @@ Pass it as `new WSystem({ apiKey })` or set `WSYSTEM_API_KEY`. Check your quota 
 | `ddReport(company, opts)` | `POST /ddreport` |
 | `einvoiceRoute(id)` | `GET /einvoice/route`: VAT + Peppol + mandate |
 | `einvoiceValidate(xml, {rules?, base64?})` | `POST /einvoice/validate` (UBL, CII, ZUGFeRD/Factur-X, XRechnung) |
+| `einvoiceParse(xml, {base64?})` | `POST /einvoice/parse`: read an incoming XRechnung/ZUGFeRD/UBL/CII invoice as JSON (number, dates, seller, buyer, totals, IBAN, lines) |
 | `einvoiceCreate(json)` / `einvoiceSample()` | `POST /einvoice/create`, `GET /einvoice/sample` |
 | `frPaRegistry({name?, website?})` | France PA (Plateformes Agréées) list |
 | `usage()` / `plans()` | account quota and plans |
