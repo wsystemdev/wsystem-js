@@ -38,6 +38,18 @@ const ws = new WSystem({ apiKey: process.env.WSYSTEM_API_KEY });
 
 Pass it as `new WSystem({ apiKey })` or set `WSYSTEM_API_KEY`. Check your quota with `await ws.usage()`.
 
+## What's new in 0.3
+
+All 57 operations are methods named after the OpenAPI `operationId` (`createEinvoice`, `sendEinvoice`, `listInboxInvoices`, `ksefConnect`, `getPlatformCompany`, ...; `OPERATIONS` lists them). Signature: path and required query parameters first, then the body (if any), then `params` (optional query) and `options`.
+
+```js
+const pdf = await ws.einvoiceCreatePdf({ type_code: "381", preceding_invoice: "RE-1", preceding_invoice_date: "2026-10-18", /* ... */ }); // ZUGFeRD credit note, Uint8Array
+await ws.sendEinvoice(body, {}, { requestId: "req-1", idempotencyKey: "order-1042", timeoutMs: 10000, maxRetries: 3 });
+try { await ws.verifyVat("x"); } catch (e) { if (e instanceof RateLimitError) console.log(e.retryAfter, e.requestId, e.code); }
+```
+
+Errors derive from `WSystemError` (`status`, `body`, `code`, `docsUrl`, `requestId`) with subclasses per status. GET/PUT/DELETE (and POST with an idempotency key) are retried on network errors, 429, 502, 503 and 504. Examples for every operation in curl, Python, Node and PHP: https://wsystem.dev/api-examples
+
 ## Methods
 
 | Method | Endpoint |

@@ -126,3 +126,8 @@ test("xml responses and the CommonJS build", async () => {
   assert.equal(typeof new cjs.WSystem().verifyVat, "function");
   assert.equal(cjs.VERSION, "0.3.0");
 });
+
+test("current API error shape: error / message / docs", async () => {
+  const [ws] = mk([res(400, { error: "missing_input", message: "needs input", docs: "https://api.wsystem.dev/docs" })], { maxRetries: 0 });
+  await assert.rejects(ws.validateEinvoice({}), (e) => e instanceof BadRequestError && e.code === "missing_input" && /needs input/.test(e.message) && e.docsUrl === "https://api.wsystem.dev/docs" && e.requestId === undefined);
+});

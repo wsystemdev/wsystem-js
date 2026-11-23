@@ -197,7 +197,7 @@ class WSystemError extends Error {
     this.requestId = this.headers["x-request-id"];
     const d = body && typeof body === "object" ? body : {};
     this.code = (d.detail && typeof d.detail === "object" ? d.detail.code : undefined) ?? (typeof d.error === "string" ? d.error : undefined) ?? d.code;
-    this.docsUrl = d.docs_url;
+    this.docsUrl = d.docs_url ?? d.docs;
   }
 }
 class WSystemConnectionError extends WSystemError { constructor(m) { super(m); this.name = "WSystemConnectionError"; } }
@@ -296,7 +296,7 @@ class WSystem extends Operations {
       if (!res.ok) {
         const msg = res.status === 402
           ? "Free tier used up (HTTP 402). Get a free key (500 units/month) at https://api.wsystem.dev/account/free-key or a plan at https://wsystem.dev/pricing"
-          : `W System API HTTP ${res.status}: ${typeof data === "object" && data ? (data.detail ?? data.error ?? JSON.stringify(data)) : text}`;
+          : `W System API HTTP ${res.status}: ${typeof data === "object" && data ? (data.detail ?? data.message ?? data.error ?? JSON.stringify(data)) : text}`;
         throw new (errorFor(res.status))(typeof msg === "string" ? msg : JSON.stringify(msg), res.status, data, rh);
       }
       return data;

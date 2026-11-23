@@ -1,4 +1,4 @@
-// Generated from the W System OpenAPI 0.3.128 by growth/sdk/gen.py. Do not edit by hand.
+// Generated from the W System OpenAPI 0.3.130 by growth/sdk/gen.py. Do not edit by hand.
 const enc = (v) => encodeURIComponent(String(v));
 export const OPERATIONS = [
   ["billingPlans", "GET", "/billing/plans"],
