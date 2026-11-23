@@ -1,7 +1,7 @@
 {
   "name": "wsystem",
-  "version": "0.2.0",
-  "description": "Zero-dependency client for the W System API: EU VAT (VIES) and EORI validation, company registers, sanctions screening, KYB, and EU e-invoicing (EN 16931 validation, UBL creation, Peppol routing).",
+  "version": "0.3.0",
+  "description": "Zero-dependency client for the W System API, all 57 operations: EU VAT (VIES) and EORI validation, company registers, sanctions screening, KYB, and EU e-invoicing (EN 16931 / XRechnung / ZUGFeRD PDF, credit notes, Peppol, inbox, KSeF).",
   "type": "module",
   "main": "./index.cjs",
   "module": "./index.mjs",
@@ -17,6 +17,7 @@
     "index.mjs",
     "index.cjs",
     "index.d.ts",
+    "operations.mjs",
     "README.md",
     "LICENSE"
   ],
@@ -49,5 +50,9 @@
     "url": "https://github.com/wsystemdev/wsystem-js/issues"
   },
   "author": "W System <hello@wsystem.dev>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test test/offline.test.mjs",
+    "smoke": "node test/live.smoke.mjs"
+  }
 }
