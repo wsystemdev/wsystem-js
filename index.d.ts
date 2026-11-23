@@ -1,4 +1,4 @@
-// Generated from the W System OpenAPI 0.3.130 by growth/sdk/gen.py. Do not edit by hand.
+// Generated from the W System OpenAPI 0.3.131 by growth/sdk/gen.py. Do not edit by hand.
 export type Params = Record<string, string | number | boolean | undefined | null>;
 export interface RequestOptions {
   headers?: Record<string, string>;
